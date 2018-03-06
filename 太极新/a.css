@@ -1,0 +1,48 @@
+@keyframes spin{
+  from {
+   transform:rotate(0deg) ;
+  }
+  to {
+    transform:rotate(360deg) ;
+  }
+}/*旋转的代码，查询MDN*/
+.taiji{
+    border:1px solid black;
+    width:200px;
+    height:200px;
+    border-radius:50%;/*变成圆*/
+    background:#fff;
+    background: linear-gradient(to bottom, #ffffff 0%,
+      rgb(255, 255, 255) 50%,#000000 50%,#000000 98%,
+      #000000 100%,#ffffff 100%); /*利用工具生成*/
+    position:relative;
+    animation-duration: 3s;
+    animation-name: spin;
+    animation-iteration-count:infinite;/*让它无限次旋转*/
+    animation-timing-function: linear;/*匀速旋转*/
+  
+  }
+
+  .taiji::before{  /*before,after里不能再嵌套before,after*/
+      content:'';/*before,after必须要加content*/
+      display: block;/*这句可以不要，有了绝对定位，自然就成了一个block了，但是最好带上*/
+      width:20px;
+      height:20px;
+      border-radius:50%;
+      position:absolute;
+      top:50px;
+      background:white;
+      border:40px solid black;
+    }
+    .taiji::after{
+      content:'';
+      width:20px;
+      height:20px;
+      border-radius:50%;
+      position:absolute;
+      left:100px;
+      top:50px;
+      background:black;
+      border:40px solid white;
+    }
+    
